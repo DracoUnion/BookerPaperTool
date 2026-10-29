@@ -1,0 +1,9 @@
+# 源文件统一 LF（BookerGptTool 源仓库为 LF 换行）
+* text=auto
+*.py text eol=lf
+*.md text eol=lf
+*.toml text eol=lf
+*.txt text eol=lf
+*.yml text eol=lf
+*.yaml text eol=lf
+*.sh text eol=lf

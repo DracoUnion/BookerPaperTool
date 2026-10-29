@@ -1,0 +1,10 @@
+openai
+httpx
+requests
+pyyaml
+pydantic
+json_repair
+pymupdf
+pillow
+pyturndown
+ctx-compact
