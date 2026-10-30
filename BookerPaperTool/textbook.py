@@ -464,5 +464,4 @@ def reg_subparser(subparsers):
     parser.add_argument('dir', help='论文文件、论文目录或 ARXIV ID（暂以本地文件/目录为主）')
     parser.add_argument('-t', '--threads', type=int, default=8, help='线程数')
     parser.add_argument('-c', '--check', type=int, default=3, help='校验次数')
-    parser.add_argument('-D', '--debug', action='store_true', help='调试模式')
     parser.set_defaults(func=textbook)

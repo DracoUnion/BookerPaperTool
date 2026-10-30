@@ -17,6 +17,7 @@ def _build_parser():
     """按 __main__.main 的方式构建解析器，但不解析 sys.argv。"""
     import argparse
     parser = argparse.ArgumentParser(prog="BookerPaperTool")
+    parser.add_argument("-D", "--debug", action="store_true", help="调试模式")
     subparsers = parser.add_subparsers()
     textbook.reg_subparser(subparsers)
     textbook_any.reg_subparser(subparsers)
@@ -36,14 +37,14 @@ class TestSubcommands(unittest.TestCase):
 
     def test_textbook_args(self):
         args = _build_parser().parse_args(
-            ["textbook", "papers", "-t", "4", "-c", "2", "-D"])
+            ["-D", "textbook", "papers", "-t", "4", "-c", "2"])
         self.assertEqual(args.dir, "papers")
         self.assertEqual(args.threads, 4)
         self.assertEqual(args.check, 2)
         self.assertTrue(args.debug)
 
     def test_textbook_any_args(self):
-        args = _build_parser().parse_args(["textbook-any", "materials", "-D"])
+        args = _build_parser().parse_args(["-D", "textbook-any", "materials"])
         self.assertEqual(args.dir, "materials")
         self.assertTrue(args.debug)
 
@@ -89,7 +90,7 @@ class TestOrchestratorInit(unittest.TestCase):
         base = dict(
             model="m", key="k", retry=1, temp=1.0, top_p=None,
             frequency_penalty=None, presence_penalty=None, max_tokens=None,
-            host=None, user_agent="ua", stream=False, extra_body=None,
+            host=None, user_agent="ua", no_stream=True, extra_body=None,
             conn_timeout=60, read_timeout=120, repetition_regex="",
             no_think=False, vmodel="", tti_model="", emb="",
         )

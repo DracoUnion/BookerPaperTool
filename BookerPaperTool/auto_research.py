@@ -185,8 +185,4 @@ def reg_subparser(subparsers):
         '-y', '--yes', action='store_true',
         help='自动批准所有审批（跳过人工确认，审计记录标记为自动批准）',
     )
-    p.add_argument(
-        '-D', '--debug', action='store_true',
-        help='调试模式',
-    )
     p.set_defaults(func=auto_research_handle)

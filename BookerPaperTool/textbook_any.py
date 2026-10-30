@@ -92,5 +92,4 @@ def reg_subparser(subparsers):
         help='多篇素材到可溯源教科书',
     )
     parser.add_argument('dir', help='论文文件、论文目录或 ARXIV ID（暂以本地文件/目录为主）')
-    parser.add_argument('-D', '--debug', action='store_true', help='调试模式')
     parser.set_defaults(func=textbook_any)
